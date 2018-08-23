@@ -56,5 +56,5 @@ func (jt *JobTemplateService) Launch(id int, data map[string]interface{}, params
 
 // ConfigureJobTemplates creates and updates a job template
 func (jt *JobTemplateService) ConfigureJobTemplate(params map[string]string) ([]*JobTemplate, error) {
-	return nil, nil, nil
+	return nil, nil
 }
