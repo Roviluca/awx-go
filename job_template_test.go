@@ -720,9 +720,13 @@ func TestConfigureJobTemplates(t *testing.T) {
 	)
 
 	awx := NewAWX(testAwxHost, testAwxUserName, testAwxPasswd, nil)
-	result, _, err := awx.JobTemplateService.ConfigureJobTemplate(map[string]string{})
+	result, err := awx.JobTemplateService.ConfigureJobTemplate((map[string]interface{}{
+		"name":        "TestProject",
+		"description": "Test project",
+	}, map[string]string{})
+
 	if err != nil {
-		log.Fatalf("ListJobTemplates err: %s", err)
+		log.Fatalf("ConfigureJobTemplates err: %s", err)
 	}
 
 	if !reflect.DeepEqual(result, expectConfigureJobTempalteResponse) {
