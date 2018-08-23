@@ -543,7 +543,7 @@ func TestConfigureJobTemplates(t *testing.T) {
 	)
 
 	awx := NewAWX(testAwxHost, testAwxUserName, testAwxPasswd, nil)
-	result, _, err := awx.JobTemplateService.ConfigureJobTemplate(map[string]string{})
+	result, err := awx.JobTemplateService.ConfigureJobTemplate(map[string]string{})
 	if err != nil {
 		log.Fatalf("ListJobTemplates err: %s", err)
 	}
