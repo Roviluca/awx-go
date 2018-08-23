@@ -54,7 +54,25 @@ func (jt *JobTemplateService) Launch(id int, data map[string]interface{}, params
 	return result, nil
 }
 
-// ConfigureJobTemplates creates and updates a job template
-func (jt *JobTemplateService) ConfigureJobTemplate(data map[string]interface{}, params map[string]string) ([]*JobTemplate, error) {
-	return nil, nil
+// ConfigureJobTemplate creates and updates a job template
+func (jt *JobTemplateService) ConfigureJobTemplate(data map[string]interface{}, params map[string]string) (*JobTemplate, error) {
+	result := new(JobTemplate)
+	endpoint := "/api/v2/tob_templates/"
+	payload, err := json.Marshal(data)
+	if err != nil {
+		return nil, err
+	}
+
+	// Add check if project exists and return proper error
+
+	resp, err := jt.client.Requester.PostJSON(endpoint, bytes.NewReader(payload), result, params)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := CheckResponse(resp); err != nil {
+		return nil, err
+	}
+
+	return result, nil
 }
