@@ -1,6 +1,7 @@
 package awx
 
 import (
+	"log"
 	"reflect"
 	"testing"
 	"time"
@@ -720,7 +721,7 @@ func TestConfigureJobTemplates(t *testing.T) {
 	)
 
 	awx := NewAWX(testAwxHost, testAwxUserName, testAwxPasswd, nil)
-	result, err := awx.JobTemplateService.ConfigureJobTemplate((map[string]interface{}{
+	result, err := awx.JobTemplateService.ConfigureJobTemplate(map[string]interface{}{
 		"name":        "TestProject",
 		"description": "Test project",
 	}, map[string]string{})
