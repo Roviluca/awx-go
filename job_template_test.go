@@ -549,8 +549,8 @@ func TestCreateJobTemplate(t *testing.T) {
 	}, map[string]string{})
 
 	if err != nil {
-		log.Fatalf("CreateJobTemplate err: %s\n", err)
-		log.Fatalf("CreateJobTemplate resp: %s\n", result)
+		log.Fatalf("CreateJobTemplate err: %s", err)
+		log.Fatalf("CreateJobTemplate resp: %sv", result)
 	}
 
 	if !reflect.DeepEqual(result, expectCreateJobTempalteResponse) {
