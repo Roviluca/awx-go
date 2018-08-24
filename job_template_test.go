@@ -537,7 +537,7 @@ func TestCreateJobTemplate(t *testing.T) {
 			CustomVirtualenv:      nil,
 			Credential:            1,
 			VaultCredential:       nil,
-		},
+		}
 	)
 
 	awx := NewAWX(testAwxHost, testAwxUserName, testAwxPasswd, nil)
