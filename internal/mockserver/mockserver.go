@@ -47,19 +47,19 @@ func (s *mockServer) InventoriesHandler(rw http.ResponseWriter, req *http.Reques
 func (s *mockServer) JobTemplatesHandler(rw http.ResponseWriter, req *http.Request) {
 	if req.Method == "GET" {
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/", req.URL.String()); matched {
-			result := mockdata.MockedListJobTemplatesResponse
+			// result := mockdata.MockedListJobTemplatesResponse
 			rw.Write([]byte("GET_LIST"))
 			return
 		}
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/[0-9]+/launch/", req.URL.String()); matched {
-			result := mockdata.MockedLaunchJobTemplateResponse
+			// result := mockdata.MockedLaunchJobTemplateResponse
 			rw.Write([]byte("GET_LAUNCH"))
 			return
 		}
 	}
 	if req.Method == "POST" {
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/", req.URL.String()); matched {
-			result := mockdata.MockedCreateJobTemplateResponse
+			// result := mockdata.MockedCreateJobTemplateResponse
 			rw.Write([]byte("POST_Create"))
 			return
 		}
