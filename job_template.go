@@ -54,8 +54,8 @@ func (jt *JobTemplateService) Launch(id int, data map[string]interface{}, params
 	return result, nil
 }
 
-// ConfigureJobTemplate creates and updates a job template
-func (jt *JobTemplateService) ConfigureJobTemplate(data map[string]interface{}, params map[string]string) (*JobTemplate, error) {
+// CreateJobTemplate creates and updates a job template
+func (jt *JobTemplateService) CreateJobTemplate(data map[string]interface{}, params map[string]string) (*JobTemplate, error) {
 	result := new(JobTemplate)
 	endpoint := "/api/v2/tob_templates/"
 	payload, err := json.Marshal(data)

@@ -377,9 +377,9 @@ func TestLauchJob(t *testing.T) {
 	}
 }
 
-func TestConfigureJobTemplate(t *testing.T) {
+func TestCreateJobTemplate(t *testing.T) {
 	var (
-		expectConfigureJobTempalteResponse = []*JobTemplate{
+		expectCreateJobTempalteResponse = []*JobTemplate{
 			{
 				ID:   5,
 				Type: "job_template",
@@ -543,18 +543,18 @@ func TestConfigureJobTemplate(t *testing.T) {
 	)
 
 	awx := NewAWX(testAwxHost, testAwxUserName, testAwxPasswd, nil)
-	result, err := awx.JobTemplateService.ConfigureJobTemplate(map[string]interface{}{
+	result, err := awx.JobTemplateService.CreateJobTemplate(map[string]interface{}{
 		"name":        "TestProject",
 		"description": "Test project",
 	}, map[string]string{})
 
 	if err != nil {
-		log.Fatalf("ConfigureJobTemplates err: %s", err)
+		log.Fatalf("CreateJobTemplate err: %s", err)
 	}
 
-	if !reflect.DeepEqual(result, expectConfigureJobTempalteResponse) {
-		log.Fatalf("ConfigureJobTemplate resp not as expected, expected: %v, resp result: %v", expectConfigureJobTempalteResponse, result)
+	if !reflect.DeepEqual(result, expectCreateJobTempalteResponse) {
+		log.Fatalf("CreateJobTemplate resp not as expected, expected: %v, resp result: %v", expectCreateJobTempalteResponse, result)
 	}
 
-	log.Println("ConfigureJobTemplate passed!")
+	log.Println("CreateJobTemplate passed!")
 }
