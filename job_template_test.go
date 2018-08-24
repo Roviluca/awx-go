@@ -550,7 +550,7 @@ func TestCreateJobTemplate(t *testing.T) {
 
 	if err != nil {
 		log.Fatalf("CreateJobTemplate err: %s", err)
-		log.Fatalf("CreateJobTemplate resp: %sv", result)
+		log.Fatalf("CreateJobTemplate resp: %v", result)
 	}
 
 	if !reflect.DeepEqual(result, expectCreateJobTempalteResponse) {
