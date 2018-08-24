@@ -47,20 +47,29 @@ func (s *mockServer) InventoriesHandler(rw http.ResponseWriter, req *http.Reques
 func (s *mockServer) JobTemplatesHandler(rw http.ResponseWriter, req *http.Request) {
 	var (
 		// FIXME: try another framework or implement dictionary tree, rather than using raw net/http.
-		singleJobTemplateLaunchRoute = "/api/v2/job_templates/[0-9]+/launch/"
-		defaultListJobTemplatesRoute = "/api/v2/job_templates/"
+		singleJobTemplateLaunchRoute  = "/api/v2/job_templates/[0-9]+/launch/"
+		defaultListJobTemplatesRoute  = "/api/v2/job_templates/"
+		defaultCreateJobTemplateRoute = "/api/v2/job_templates/"
 	)
+	if req.Method == "GET" {
+		if matched, _ := regexp.MatchString(singleJobTemplateLaunchRoute, req.URL.String()); matched {
+			result := mockdata.MockedLaunchJobTemplateResponse
+			rw.Write(result)
+			return
+		}
+		if matched, _ := regexp.MatchString(defaultListJobTemplatesRoute, req.URL.String()); matched {
+			result := mockdata.MockedListJobTemplatesResponse
+			rw.Write(result)
+			return
+		}
 
-	if matched, _ := regexp.MatchString(singleJobTemplateLaunchRoute, req.URL.String()); matched {
-		result := mockdata.MockedLaunchJobTemplateResponse
-		rw.Write(result)
-		return
 	}
-
-	if matched, _ := regexp.MatchString(defaultListJobTemplatesRoute, req.URL.String()); matched {
-		result := mockdata.MockedListJobTemplatesResponse
-		rw.Write(result)
-		return
+	if req.Method == "POST" {
+		if matched, _ := regexp.MatchString(defaultCreateJobTemplateRoute, req.URL.String()); matched {
+			result := mockdata.MockedCreateJobTemplateResponse
+			rw.Write(result)
+			return
+		}
 	}
 
 	rw.WriteHeader(http.StatusNotFound)
