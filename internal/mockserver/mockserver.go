@@ -48,7 +48,7 @@ func (s *mockServer) JobTemplatesHandler(rw http.ResponseWriter, req *http.Reque
 	if req.Method == "GET" {
 		rw.Write([]byte("GEET"))
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/[0-9]+/launch/", req.URL.String()); matched {
-			result := mockdata.MockedLaunchJobTemplatesResponse
+			result := mockdata.MockedLaunchJobTemplateResponse
 			rw.Write(result)
 			return
 		}
@@ -62,7 +62,7 @@ func (s *mockServer) JobTemplatesHandler(rw http.ResponseWriter, req *http.Reque
 	if req.Method == "POST" {
 		rw.Write([]byte("POOST"))
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/", req.URL.String()); matched {
-			result := mockdata.MockedCreateJobTemplatesResponse
+			result := mockdata.MockedCreateJobTemplateResponse
 			rw.Write(result)
 			return
 		}
