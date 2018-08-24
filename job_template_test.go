@@ -379,7 +379,7 @@ func TestLauchJob(t *testing.T) {
 
 func TestCreateJobTemplate(t *testing.T) {
 	var (
-		expectCreateJobTempalteResponse = []*JobTemplate{
+		expectCreateJobTempalteResponse = &JobTemplate{
 			{
 				ID:   5,
 				Type: "job_template",
@@ -550,7 +550,6 @@ func TestCreateJobTemplate(t *testing.T) {
 
 	if err != nil {
 		log.Fatalf("CreateJobTemplate err: %s", err)
-		log.Fatalf("CreateJobTemplate resp: %v", result)
 	}
 
 	if !reflect.DeepEqual(result, expectCreateJobTempalteResponse) {
