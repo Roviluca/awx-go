@@ -306,162 +306,152 @@ var (
 	// MockedCreateJobTemplateResponse mocked `LaunchJobTemplate` endpoint response
 	MockedCreateJobTemplateResponse = []byte(`
 {
-    ID:   5,
-    Type: "job_template",
-    URL:  "/api/v2/job_templates/5/",
-    Related: &Related{
-        CreatedBy:                    "/api/v2/users/1/",
-        ModifiedBy:                   "/api/v2/users/1/",
-        Labels:                       "/api/v2/job_templates/5/labels/",
-        Inventory:                    "/api/v2/inventories/1/",
-        Project:                      "/api/v2/projects/4/",
-        Credential:                   "/api/v2/credentials/1/",
-        ExtraCredentials:             "/api/v2/job_templates/5/extra_credentials/",
-        Credentials:                  "/api/v2/job_templates/5/credentials/",
-        NotificationTemplatesError:   "/api/v2/job_templates/5/notification_templates_error/",
-        NotificationTemplatesSuccess: "/api/v2/job_templates/5/notification_templates_success/",
-        NotificationTemplatesAny:     "/api/v2/job_templates/5/notification_templates_any/",
-        Jobs:           "/api/v2/job_templates/5/jobs/",
-        ObjectRoles:    "/api/v2/job_templates/5/object_roles/",
-        AccessList:     "/api/v2/job_templates/5/access_list/",
-        Launch:         "/api/v2/job_templates/5/launch/",
-        InstanceGroups: "/api/v2/job_templates/5/instance_groups/",
-        Schedules:      "/api/v2/job_templates/5/schedules/",
-        Copy:           "/api/v2/job_templates/5/copy/",
-        ActivityStream: "/api/v2/job_templates/5/activity_stream/",
-        SurveySpec:     "/api/v2/job_templates/5/survey_spec/",
+    "id": 5,
+    "type": "job_template",
+    "url": "/api/v2/job_templates/5/",
+    "related": {
+        "named_url": "/api/v2/job_templates/Demo Job Template/",
+        "created_by": "/api/v2/users/1/",
+        "modified_by": "/api/v2/users/1/",
+        "labels": "/api/v2/job_templates/5/labels/",
+        "inventory": "/api/v2/inventories/1/",
+        "project": "/api/v2/projects/4/",
+        "credential": "/api/v2/credentials/1/",
+        "extra_credentials": "/api/v2/job_templates/5/extra_credentials/",
+        "credentials": "/api/v2/job_templates/5/credentials/",
+        "notification_templates_error": "/api/v2/job_templates/5/notification_templates_error/",
+        "notification_templates_success": "/api/v2/job_templates/5/notification_templates_success/",
+        "jobs": "/api/v2/job_templates/5/jobs/",
+        "object_roles": "/api/v2/job_templates/5/object_roles/",
+        "notification_templates_any": "/api/v2/job_templates/5/notification_templates_any/",
+        "access_list": "/api/v2/job_templates/5/access_list/",
+        "launch": "/api/v2/job_templates/5/launch/",
+        "instance_groups": "/api/v2/job_templates/5/instance_groups/",
+        "schedules": "/api/v2/job_templates/5/schedules/",
+        "copy": "/api/v2/job_templates/5/copy/",
+        "activity_stream": "/api/v2/job_templates/5/activity_stream/",
+        "survey_spec": "/api/v2/job_templates/5/survey_spec/"
     },
-    SummaryFields: &Summary{
-        Inventory: &Inventory{
-            ID:                           1,
-            Name:                         "Demo Inventory",
-            Description:                  "",
-            HasActiveFailures:            false,
-            TotalHosts:                   2,
-            HostsWithActiveFailures:      0,
-            TotalGroups:                  0,
-            GroupsWithActiveFailures:     0,
-            HasInventorySources:          false,
-            TotalInventorySources:        0,
-            InventorySourcesWithFailures: 0,
-            OrganizationID:               1,
-            Kind:                         "",
+    "summary_fields": {
+        "inventory": {
+            "id": 1,
+            "name": "Demo Inventory",
+            "description": "",
+            "has_active_failures": false,
+            "total_hosts": 1,
+            "hosts_with_active_failures": 0,
+            "total_groups": 0,
+            "groups_with_active_failures": 0,
+            "has_inventory_sources": false,
+            "total_inventory_sources": 0,
+            "inventory_sources_with_failures": 0,
+            "organization_id": 1,
+            "kind": ""
         },
-
-        Project: &Project{
-            ID:          4,
-            Name:        "Demo Project",
-            Description: "",
-            Status:      "never updated",
-            ScmType:     "git",
+        "credential": {
+            "description": "",
+            "credential_type_id": 1,
+            "id": 1,
+            "kind": "ssh",
+            "name": "Demo Credential"
         },
-
-        CreatedBy: &ByUserSummary{
-            ID:        1,
-            Username:  "admin",
-            FirstName: "",
-            LastName:  "",
+        "project": {
+            "id": 4,
+            "name": "Demo Project",
+            "description": "",
+            "status": "never updated",
+            "scm_type": "git"
         },
-
-        ModifiedBy: &ByUserSummary{
-            ID:        1,
-            Username:  "admin",
-            FirstName: "",
-            LastName:  "",
+        "created_by": {
+            "id": 1,
+            "username": "admin",
+            "first_name": "admin",
+            "last_name": "admin"
         },
-
-        ObjectRoles: &ObjectRoles{
-            AdminRole: &ApplyRole{
-                ID:          27,
-                Description: "Can manage all aspects of the job template",
-                Name:        "Admin",
+        "modified_by": {
+            "id": 1,
+            "username": "admin",
+            "first_name": "admin",
+            "last_name": "admin"
+        },
+        "object_roles": {
+            "admin_role": {
+                "id": 28,
+                "description": "Can manage all aspects of the job template",
+                "name": "Admin"
             },
-
-            ExecuteRole: &ApplyRole{
-                ID:          26,
-                Description: "May run the job template",
-                Name:        "Execute",
+            "execute_role": {
+                "id": 27,
+                "description": "May run the job template",
+                "name": "Execute"
             },
-
-            ReadRole: &ApplyRole{
-                ID:          25,
-                Description: "May view settings for the job template",
-                Name:        "Read",
-            },
+            "read_role": {
+                "id": 26,
+                "description": "May view settings for the job template",
+                "name": "Read"
+            }
         },
-
-        UserCapabilities: &UserCapabilities{
-            Edit:     true,
-            Start:    true,
-            Copy:     true,
-            Schedule: true,
-            Delete:   true,
+        "user_capabilities": {
+            "edit": true,
+            "start": true,
+            "copy": true,
+            "schedule": true,
+            "delete": true
         },
-
-        Labels: &Labels{
-            Count:   0,
-            Results: []interface{}{},
+        "labels": {
+            "count": 0,
+            "results": []
         },
-
-        RecentJobs: []interface{}{},
-
-        Credentials: []Credential{
+        "recent_jobs": [],
+        "extra_credentials": [],
+        "credentials": [
             {
-                Description:      "",
-                CredentialTypeID: 1,
-                ID:               1,
-                Kind:             "ssh",
-                Name:             "Demo Credential",
-            },
-        },
+                "description": "",
+                "credential_type_id": 1,
+                "id": 1,
+                "kind": "ssh",
+                "name": "Demo Credential"
+            }
+        ]
     },
-
-    Created: func() time.Time {
-        t, _ := time.Parse(time.RFC3339, "2018-05-21T01:34:35.773593Z")
-        return t
-    }(),
-
-    Modified: func() time.Time {
-        t, _ := time.Parse(time.RFC3339, "2018-05-21T01:34:35.773605Z")
-        return t
-    }(),
-
-    Name:                  "Demo Job Template",
-    Description:           "",
-    JobType:               "run",
-    Inventory:             1,
-    Project:               4,
-    Playbook:              "hello-world.yml",
-    Forks:                 0,
-    Limit:                 "",
-    Verbosity:             0,
-    ExtraVars:             "",
-    JobTags:               "",
-    ForceHandlers:         false,
-    SkipTags:              "",
-    StartAtTask:           "",
-    Timeout:               0,
-    UseFactCache:          false,
-    LastJobRun:            nil,
-    LastJobFailed:         false,
-    NextJobRun:            nil,
-    Status:                "never updated",
-    HostConfigKey:         "",
-    AskDiffModeOnLaunch:   false,
-    AskVariablesOnLaunch:  false,
-    AskLimitOnLaunch:      false,
-    AskTagsOnLaunch:       false,
-    AskSkipTagsOnLaunch:   false,
-    AskJobTypeOnLaunch:    false,
-    AskVerbosityOnLaunch:  false,
-    AskInventoryOnLaunch:  false,
-    AskCredentialOnLaunch: false,
-    SurveyEnabled:         false,
-    BecomeEnabled:         false,
-    DiffMode:              false,
-    AllowSimultaneous:     false,
-    CustomVirtualenv:      nil,
-    Credential:            1,
-    VaultCredential:       nil,
+    "created": "2018-06-28T16:31:16.238510Z",
+    "modified": "2018-06-28T16:31:16.238524Z",
+    "name": "Demo Job Template",
+    "description": "",
+    "job_type": "run",
+    "inventory": 1,
+    "project": 4,
+    "playbook": "hello_world.yml",
+    "forks": 0,
+    "limit": "",
+    "verbosity": 0,
+    "extra_vars": "",
+    "job_tags": "",
+    "force_handlers": false,
+    "skip_tags": "",
+    "start_at_task": "",
+    "timeout": 0,
+    "use_fact_cache": false,
+    "last_job_run": null,
+    "last_job_failed": false,
+    "next_job_run": null,
+    "status": "never updated",
+    "host_config_key": "",
+    "ask_diff_mode_on_launch": false,
+    "ask_variables_on_launch": false,
+    "ask_limit_on_launch": false,
+    "ask_tags_on_launch": false,
+    "ask_skip_tags_on_launch": false,
+    "ask_job_type_on_launch": false,
+    "ask_verbosity_on_launch": false,
+    "ask_inventory_on_launch": false,
+    "ask_credential_on_launch": false,
+    "survey_enabled": false,
+    "become_enabled": false,
+    "diff_mode": false,
+    "allow_simultaneous": false,
+    "custom_virtualenv": null,
+    "credential": 1,
+    "vault_credential": null
 }`)
 )
