@@ -53,7 +53,7 @@ func (s *mockServer) JobTemplatesHandler(rw http.ResponseWriter, req *http.Reque
 			return
 		}
 		if matched, _ := regexp.MatchString("/api/v2/job_templates/", req.URL.String()); matched {
-			result := mockdata.MockedListJobTemplatesResponse
+			result := mockdata.MockedListJobTemplateResponse
 			rw.Write(result)
 			return
 		}
